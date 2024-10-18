@@ -1,30 +1,27 @@
 <?php
+declare(strict_types=1)
 
 echo "Задание 1 <br/>" . PHP_EOL;
 echo "<br/>" . PHP_EOL;
 
-function add($arg1, $arg2)
+function add(float | int $arg1, float | int $arg2) : float | int
 {
     return $arg1 + $arg2;
 }
 
-function subtract($arg1, $arg2)
+function subtract(float | int $arg1, float | int $arg2) : float | int
 {
     return $arg1 - $arg2;
 }
 
-function multiply($arg1, $arg2)
+function multiply(float | int $arg1, float | int $arg2) : float | int
 {
     return $arg1 * $arg2;
 }
 
-function divide($arg1, $arg2)
+function divide(float | int $arg1, float | int $arg2) : float | int | string
 {
-    if ($arg2 != 0) {
-        return $arg1 / $arg2;
-    } else {
-        return "Error: Division by zero ";
-    }
+    return ($arg2 != 0) ? $arg1 / $arg2 : "Error: Division by zero ";
 }
 
 // Пример использования функций
@@ -39,7 +36,7 @@ echo "<br/>" . PHP_EOL;
 echo "Задание 2 <br/>" . PHP_EOL;
 echo "<br/>" . PHP_EOL;
 
-function mathOperation($arg1, $arg2, $operation)
+function mathOperation(float | int $arg1, float | int $arg2, string $operation) : float | int | string
 {
     switch ($operation) {
         case 'add':
@@ -148,7 +145,7 @@ echo "<br/>" . PHP_EOL;
 echo "Задание 5 <br/>" . PHP_EOL;
 echo "<br/>" . PHP_EOL;
 
-function power($val, $pow)
+function power(float | int $val, float | int $pow) : float | int
 {
     if ($pow == 0) {
         return 1;
