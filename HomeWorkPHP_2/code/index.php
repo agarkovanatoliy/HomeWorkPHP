@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1)
+declare(strict_types=1);
 
 echo "Задание 1 <br/>" . PHP_EOL;
 echo "<br/>" . PHP_EOL;
@@ -119,12 +119,7 @@ function translit(string $text): string
     foreach (preg_split('//u', $text, -1, PREG_SPLIT_NO_EMPTY) as $char) {
         // Проверка наличия в массиве транслитерации
         if (isset($translatium[$char])) {
-            // Учет регистра
-            if (strtoupper($char) === $char) {
-                $result .= strtoupper($translatium[$char]);
-            } else {
-                $result .= $translatium[$char];
-            }
+            $result .= $translatium[$char];
         } elseif (in_array($char, $specialChars)) {
             // Добавление специальных символов без изменения
             $result .= $char;
@@ -139,7 +134,7 @@ function translit(string $text): string
 
 // Примеры использования функции
 
-echo translit('Привет!') . " <br/>" . PHP_EOL;  // Выведет PRiVET!
+echo translit('Ёжик!') . " <br/>" . PHP_EOL;  // Выведет Yozhik!
 
 echo "<br/>" . PHP_EOL;
 echo "Задание 5 <br/>" . PHP_EOL;
@@ -152,13 +147,13 @@ function power(float | int $val, float | int $pow) : float | int
     } elseif ($pow > 0) {
         return $val * power($val, $pow - 1);
     } else {
-        return 1 / power($val, -$pow);
+        return 1 / power($val, -$pow-1);
     }
 }
 
 // Примеры использования функции
 echo power(2, 3) . " <br/>" . PHP_EOL;  // Выведет 8
-echo power(5, -2) . " <br/>" . PHP_EOL;  // Выведет 0.04
+echo power(5, -2) . " <br/>" . PHP_EOL;  // Выведет 0.2
 
 echo "<br/>" . PHP_EOL;
 echo "Задание 6 <br/>" . PHP_EOL;
